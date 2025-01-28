@@ -1,0 +1,35 @@
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
+
+.editor {
+  width: 100%;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+
+table {
+  margin-top: 20px;
+  width: 100%;
+  border:  solid grey 1px;
+}
+
+.actions-buttons button{
+  margin-left: 10px;
+}
+
+.actions-buttons{
+  width: 25%;
+}
+
+.buttons-section{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

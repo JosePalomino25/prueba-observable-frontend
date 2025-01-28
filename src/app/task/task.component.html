@@ -1,0 +1,41 @@
+
+<div class="container">
+  <mat-card>
+    <mat-card-title>Añadir Tareas</mat-card-title>
+    <mat-card-content>
+      <mat-form-field appearance="outline" class="editor">
+        <mat-label>Nueva tarea</mat-label>
+        <input matInput #taskInput type="text">
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="addTask(taskInput.value); taskInput.value = ''">Añadir</button>
+    </mat-card-content>
+  </mat-card>
+
+<div>
+  <table mat-table [dataSource]="task"  class="mat-elevation-z8">
+    <ng-container matColumnDef="id"  class="headers">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+    <ng-container matColumnDef="title" class="headers">
+      <th mat-header-cell *matHeaderCellDef> Titulo </th>
+      <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+    </ng-container>
+    <ng-container matColumnDef="completed" class="headers">
+      <th mat-header-cell *matHeaderCellDef> Estado </th>
+      <td mat-cell *matCellDef="let element">
+        <mat-checkbox [checked]="element.completed" (change)="toggleTask(element.id)"></mat-checkbox>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="actions" class="headers">
+      <th mat-header-cell *matHeaderCellDef> Acciones </th>
+      <td mat-cell *matCellDef="let element" class="actions-buttons">
+        <button mat-raised-button color="primary" (click)="removeTask(element.id)">Eliminar</button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+  </table>
+</div>
+
+
