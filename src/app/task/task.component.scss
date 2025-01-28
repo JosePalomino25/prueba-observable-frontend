@@ -11,7 +11,16 @@
 .completed {
   text-decoration: line-through;
 }
+.filter-bar {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
 
+}
+.filter {
+  width: 100%;
+  max-width: 300px;
+}
 
 table {
   margin-top: 20px;

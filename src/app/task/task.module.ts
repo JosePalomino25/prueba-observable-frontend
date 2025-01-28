@@ -8,6 +8,10 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatTableModule} from "@angular/material/table";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {FormsModule} from "@angular/forms";
+import {MatSelectModule} from "@angular/material/select";
 
 
 
@@ -27,7 +31,11 @@ import {MatTableModule} from "@angular/material/table";
     MatCheckboxModule,
     MatIconModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    MatToolbarModule,
+    MatButtonToggleModule,
+    FormsModule,
+    MatSelectModule
   ]
 })
 export class TaskModule { }

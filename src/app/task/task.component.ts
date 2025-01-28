@@ -10,14 +10,18 @@ import {Task} from "../models/task";
 })
 export class TaskComponent implements OnInit, OnDestroy {
     task!: Task[];
+    filteredTasks: Task[] = [];
+    filter: string = 'all';
     subscription!: Subscription;
     columns: string[] = ['id', 'title', 'completed', 'actions'];
 
   constructor(private taskService: TaskService) { }
 
   ngOnInit() {
-    this.subscription = this.taskService.subjectTask.subscribe(task => (this.task = task)
-    );
+    this.subscription = this.taskService.subjectTask.subscribe(tasks => {
+      this.task = tasks;
+      this.appyFilter()
+    });
   }
 
   ngOnDestroy() {
@@ -37,6 +41,20 @@ export class TaskComponent implements OnInit, OnDestroy {
 
   toggleTask(id: number) {
     this.taskService.toggleTask(id);
+  }
+
+  appyFilter() {
+    switch (this.filter) {
+      case 'completed':
+        this.filteredTasks = this.task.filter(filter => filter.completed);
+        break;
+        case 'notCompleted':
+          this.filteredTasks = this.task.filter(filter => !filter.completed);
+          break;
+      default:
+        this.filteredTasks = [...this.task];
+
+    }
   }
 
 }

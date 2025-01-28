@@ -8,7 +8,7 @@ import {Task} from "../models/task";
 })
 export class TaskService {
   tasks:Task[]=[]
-  taskSubject: BehaviorSubject<Task[]> = new BehaviorSubject<Task[]>([]);
+  taskSubject: BehaviorSubject<Task[]> = new BehaviorSubject<Task[]>(this.tasks);
   subjectTask = this.taskSubject.asObservable();
 
   constructor() { }
